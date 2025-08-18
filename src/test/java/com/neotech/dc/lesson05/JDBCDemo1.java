@@ -20,7 +20,6 @@ public class JDBCDemo1 {
 		System.out.println("Connection established successfully! ");
 
 		// create a SQL statement
-
 		Statement st = conn.createStatement();
 
 		// execute the sql statement
@@ -29,11 +28,11 @@ public class JDBCDemo1 {
 		System.out.println("--------------------");
 		System.out.println(rs.toString());
 
-		// iterate through the result set
 		// how can I iterate through the result set ?
-		rs.next();
-		String bookName = rs.getString("BookName");
-		System.out.println(bookName);
+		rs.next(); // move the cursor to the first row 
+		String bookName1= rs.getString("BookName");
+		System.out.println(bookName1);
+		
 		rs.next();
 		String bookName2 = rs.getString("BookName");
 		System.out.println(bookName2);
@@ -42,9 +41,10 @@ public class JDBCDemo1 {
 		System.out.println("iterate through all the rows ");
 		
 		while(rs.next()) {
-			
-			String bookName3 = rs.getString("BookName");
-			System.out.println(bookName3);
+			// move the cursor to the next row 
+			// get the value of the column "BookName"
+			String bookName = rs.getString("BookName");
+			System.out.println(bookName);
 		}
 
 		// close the connection
